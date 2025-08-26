@@ -1,0 +1,32 @@
+name: planner-feishu-gemini
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -r requirements.txt
+      - name: Run planner
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          GEMINI_MODEL: gemini-1.5-flash
+          PUSH_HOUR: "7"
+          PUSH_WINDOW_MIN: "7"
+        run: python -m app.main
+      - name: Commit outputs (optional)
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git config user.name  "github-actions[bot]"
+            git add -A
+            git commit -m "chore: update agendas & deliveries [skip ci]" || true
+            git push
+          fi

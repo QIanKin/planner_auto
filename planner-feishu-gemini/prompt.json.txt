@@ -1,0 +1,9 @@
+请把下面的用户计划拆解为“当天可执行”的日程，严格输出 JSON（无多余文本）：
+字段：date, focus, blocks[{start,end,task,checklist?,priority}], reminders[], risks[]。
+今天日期：{today}
+用户偏好/边界：{prefs}
+
+原始计划：
+---
+{content}
+---

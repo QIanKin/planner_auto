@@ -1,0 +1,2 @@
+public_id,timezone,feishu_webhook,feishu_secret,active,prefs
+demo,Asia/Shanghai,https://open.feishu.cn/open-apis/bot/v2/hook/9bc76b8d-1272-4737-b733-9e3f9d147e19,,true,工作日 9:30-18:30; 午休 12:00-13:30; 晚上尽量不加班
