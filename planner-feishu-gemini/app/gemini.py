@@ -9,6 +9,14 @@ import httpx
 DEFAULT_MODEL = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
 
 
+def _get_temperature() -> float:
+    val = os.getenv("GEMINI_TEMPERATURE", "0.2")
+    try:
+        return float(val)
+    except Exception:
+        return 0.2
+
+
 class GeminiError(RuntimeError):
     pass
 
@@ -34,7 +42,11 @@ async def generate_text(prompt: str, model: Optional[str] = None) -> str:
 
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.7, "maxOutputTokens": 1000},
+        "generationConfig": {
+            "temperature": _get_temperature(),
+            "maxOutputTokens": 1000,
+            "responseMimeType": "application/json"
+        },
     }
 
     headers = {"Content-Type": "application/json"}

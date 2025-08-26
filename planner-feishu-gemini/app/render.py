@@ -8,7 +8,10 @@ def _format_block(block: Dict) -> str:
     end = block.get("end", "??:??")
     task = block.get("task", "")
     priority = block.get("priority", "S")
-    lines = [f"• {start}-{end}  {task}  [{priority}]"]
+    line = f"• {start}-{end}  {task}"
+    if priority in ("M", "C"):
+        line = f"{line}  [{priority}]"
+    lines = [line]
     checklist = block.get("checklist") or []
     for item in checklist:
         lines.append(f"   - [ ] {item}")

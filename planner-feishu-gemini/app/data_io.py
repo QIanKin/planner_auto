@@ -64,6 +64,21 @@ def load_latest_plan_md(public_id: str) -> Optional[str]:
         return None
 
 
+def load_preferred_plan_md(public_id: str, date_str: str) -> Optional[str]:
+    """Prefer a plan file for the given date: {public_id}.{YYYY-MM-DD}*.md; else fallback to latest.
+    """
+    pattern_today = os.path.join(PLANS_DIR, f"{public_id}.{date_str}*.md")
+    files_today = glob(pattern_today)
+    if files_today:
+        latest_today = max(files_today, key=lambda p: os.path.getmtime(p))
+        try:
+            with open(latest_today, "r", encoding="utf-8") as f:
+                return f.read()
+        except Exception:
+            pass
+    return load_latest_plan_md(public_id)
+
+
 def _agenda_path(public_id: str, date_str: str) -> str:
     date_dir = os.path.join(AGENDAS_DIR, date_str)
     _ensure_dir(date_dir)

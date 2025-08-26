@@ -1,9 +1,23 @@
-请把下面的用户计划拆解为“当天可执行”的日程，严格输出 JSON（无多余文本）：
-字段：date, focus, blocks[{start,end,task,checklist?,priority}], reminders[], risks[]。
-今天日期：{today}
-用户偏好/边界：{prefs}
-
-原始计划：
+今天日期：{today}，请将下面的用户计划拆解为“当天可执行”的日程，并且只输出一个严格合法的 JSON 对象
+用户计划：
 ---
 {content}
 ---
+用户偏好/边界：{prefs}
+你的输出必须遵守：
+- 仅输出 JSON，不要出现任何解释文字、Markdown、代码块围栏(如 ```)、语言标签(如 json)、注释。
+- 所有键与字符串都用双引号；不要多余逗号；不要 null（数组为空请用 []，可选字段可省略）。
+- 时间使用 24 小时制，格式严格为 HH:MM（如 09:00）。
+- priority 取值仅允许 "M" | "S" | "C"（默认为 "S" 可省略）。
+- JSON 必须可被 json.loads 直接解析；若不确定，也必须返回最小合法结构。
+- 结合“工作日/周末”与用户偏好/边界，合理安排时段；避免过度安排；必要留缓冲；中文输出。
+字段与类型：
+{
+  "date": "YYYY-MM-DD",               // 当天日期，等于 {today}
+  "focus": "string",                  // 当日主题
+  "blocks": [                          // 当日分块安排，时间不重叠
+    {"start": "HH:MM", "end": "HH:MM", "task": "string", "checklist": ["string", ...], "priority": "M|S|C"}
+  ],
+  "reminders": ["string", ...],
+  "risks": ["string", ...]
+}
