@@ -208,8 +208,28 @@ async def process_user(user: Dict, utc_now) -> None:
         txt_tpl = _read_text(PROMPT_TEXT_PATH)
         txt_prompt = txt_tpl.format(today=today_str, prefs=prefs, content=plan_md)
         text = await gemini.generate_text(txt_prompt)
-        ok, resp = await send_text(webhook, text, user_secret)
-        append_delivery(public_id, date_str, "feishu", ok, resp)
+        # If fallback looks like JSON, parse -> normalize -> render -> send
+        sent = False
+        if text and '{' in text and '}' in text:
+            try:
+                cleaned_fb = _strip_code_fence(text)
+                candidate_fb = _extract_json_object(cleaned_fb)
+                sanitized_fb = _sanitize_json_like(candidate_fb)
+                obj_fb = json.loads(sanitized_fb)
+                try:
+                    agenda_fb = Agenda(**obj_fb).model_dump()
+                except Exception:
+                    agenda_fb = Agenda(**_normalize_schema(obj_fb, today_str)).model_dump()
+                write_agenda(public_id, date_str, agenda_fb)
+                rendered = render_text(agenda_fb)
+                ok, resp = await send_text(webhook, rendered, user_secret)
+                append_delivery(public_id, date_str, "feishu", ok, resp)
+                sent = True
+            except Exception:
+                sent = False
+        if not sent:
+            ok, resp = await send_text(webhook, text, user_secret)
+            append_delivery(public_id, date_str, "feishu", ok, resp)
     except Exception as exc:
         append_delivery(public_id, date_str, "feishu", False, f"fallback_error: {exc}")
 
