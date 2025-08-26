@@ -24,7 +24,7 @@ jobs:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           GEMINI_MODEL: gemini-1.5-flash
           PUSH_HOUR: "7"
-          PUSH_WINDOW_MIN: "7"
+          PUSH_WINDOW_MIN: "720"
         run: python -m app.main
       - name: Commit outputs (optional)
         run: |
