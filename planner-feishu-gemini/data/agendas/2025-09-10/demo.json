@@ -1,0 +1,45 @@
+{
+  "date": "2025-09-10",
+  "focus": "",
+  "blocks": [
+    {
+      "start": "09:30",
+      "end": "10:30",
+      "task": "雅思学习第一章",
+      "checklist": null,
+      "priority": "S"
+    },
+    {
+      "start": "10:30",
+      "end": "11:00",
+      "task": "休息/计划高等数学学习",
+      "checklist": null,
+      "priority": "S"
+    },
+    {
+      "start": "13:30",
+      "end": "16:30",
+      "task": "高等数学第二章学习",
+      "checklist": null,
+      "priority": "S"
+    },
+    {
+      "start": "16:30",
+      "end": "17:00",
+      "task": "复习/回顾",
+      "checklist": null,
+      "priority": "S"
+    },
+    {
+      "start": "18:30",
+      "end": "19:00",
+      "task": "自由活动/放松",
+      "checklist": null,
+      "priority": "S"
+    }
+  ],
+  "reminders": [
+    "劳逸结合，保证学习效率！"
+  ],
+  "risks": []
+}
