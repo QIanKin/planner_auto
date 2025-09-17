@@ -1062,3 +1062,4 @@ ts,public_id,date,channel,status,provider_message
 2025-09-17T10:41:46.236635+00:00,demo,2025-09-17,feishu,ok,"{""StatusCode"": 0, ""StatusMessage"": ""success"", ""code"": 0, ""data"": {}, ""msg"": ""success""}"
 2025-09-17T10:52:30.816477+00:00,demo,2025-09-17,feishu,ok,"{""StatusCode"": 0, ""StatusMessage"": ""success"", ""code"": 0, ""data"": {}, ""msg"": ""success""}"
 2025-09-17T16:25:15.334069+00:00,demo,2025-09-18,feishu,fail,fallback_error: http_error: 
+2025-09-17T16:45:16.868446+00:00,demo,2025-09-18,feishu,ok,"{""StatusCode"": 0, ""StatusMessage"": ""success"", ""code"": 0, ""data"": {}, ""msg"": ""success""}"
