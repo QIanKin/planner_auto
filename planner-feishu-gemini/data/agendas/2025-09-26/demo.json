@@ -1,0 +1,38 @@
+{
+  "date": "2025-09-26",
+  "focus": "",
+  "blocks": [
+    {
+      "start": "09:30",
+      "end": "11:30",
+      "task": "完成雅思学习第一章",
+      "checklist": null,
+      "priority": "S"
+    },
+    {
+      "start": "11:30",
+      "end": "12:00",
+      "task": "休息/准备午饭",
+      "checklist": null,
+      "priority": "S"
+    },
+    {
+      "start": "13:30",
+      "end": "16:30",
+      "task": "完成高等数学第二章学习",
+      "checklist": null,
+      "priority": "S"
+    },
+    {
+      "start": "16:30",
+      "end": "17:00",
+      "task": "今日工作回顾/计划总结",
+      "checklist": null,
+      "priority": "S"
+    }
+  ],
+  "reminders": [
+    "劳逸结合，保证学习效率！"
+  ],
+  "risks": []
+}
