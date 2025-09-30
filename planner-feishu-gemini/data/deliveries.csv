@@ -2930,3 +2930,11 @@ ts,public_id,date,channel,status,provider_message
   }
 }
 "
+2025-09-30T06:30:02.830879+00:00,demo,2025-09-30,feishu,fail,"fallback_error: status_404: {
+  ""error"": {
+    ""code"": 404,
+    ""message"": ""models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."",
+    ""status"": ""NOT_FOUND""
+  }
+}
+"
