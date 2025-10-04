@@ -5472,3 +5472,28 @@ ts,public_id,date,channel,status,provider_message
   }
 }
 "
+2025-10-04T05:51:09.393211+00:00,demo,2025-10-04,feishu,fail,"fallback_error: status_403: {
+  ""error"": {
+    ""code"": 403,
+    ""message"": ""Permission denied: Consumer 'api_key:AIzaSyBAFShhqFWPp257WGpKFdCoU_0c7Q9BeNM' has been suspended."",
+    ""status"": ""PERMISSION_DENIED"",
+    ""details"": [
+      {
+        ""@type"": ""type.googleapis.com/google.rpc.ErrorInfo"",
+        ""reason"": ""CONSUMER_SUSPENDED"",
+        ""domain"": ""googleapis.com"",
+        ""metadata"": {
+          ""service"": ""generativelanguage.googleapis.com"",
+          ""containerInfo"": ""api_key:AIzaSyBAFShhqFWPp257WGpKFdCoU_0c7Q9BeNM"",
+          ""consumer"": ""projects/553796409207""
+        }
+      },
+      {
+        ""@type"": ""type.googleapis.com/google.rpc.LocalizedMessage"",
+        ""locale"": ""en-US"",
+        ""message"": ""Permission denied: Consumer 'api_key:AIzaSyBAFShhqFWPp257WGpKFdCoU_0c7Q9BeNM' has been suspended.""
+      }
+    ]
+  }
+}
+"
