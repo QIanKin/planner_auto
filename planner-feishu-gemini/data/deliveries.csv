@@ -211827,3 +211827,26 @@ ts,public_id,date,channel,status,provider_message
   }
 }
 "
+2026-11-23T00:18:52.906120+00:00,demo,2026-11-23,feishu,fail,"fallback_error: status_403: {
+  ""error"": {
+    ""code"": 403,
+    ""message"": ""Permission denied on the service."",
+    ""status"": ""PERMISSION_DENIED"",
+    ""details"": [
+      {
+        ""@type"": ""type.googleapis.com/google.rpc.ErrorInfo"",
+        ""reason"": ""ACCESS_DENIED"",
+        ""domain"": ""googleapis.com"",
+        ""metadata"": {
+          ""service"": ""generativelanguage.googleapis.com""
+        }
+      },
+      {
+        ""@type"": ""type.googleapis.com/google.rpc.LocalizedMessage"",
+        ""locale"": ""en-US"",
+        ""message"": ""Permission denied on the service.""
+      }
+    ]
+  }
+}
+"
